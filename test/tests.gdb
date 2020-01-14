@@ -38,12 +38,12 @@ expectPORTD 0x00
 checkResult
 
 # A = 40, B = 40, C = 70: TOTALWEIGHT 150, DIFFERENCE = 30
-test "PINA: 0x28, PINB: 0x28, PINC 0x46 => PORTD: 0x97"
+test "PINA: 0x28, PINB: 0x28, PINC 0x46 => PORTD: 0x95"
 setPINA 0x28
 setPINB 0x28
 setPINC 0x46
 continue 5
-expectPORTD 0x97
+expectPORTD 0x95
 checkResult
 
 # A = 30, B = 40, C = 50: TOTALWEIGHT 120, DIFFERENCE = 20 
@@ -65,12 +65,12 @@ expectPORTD 0xE7
 checkResult
 
 #A = 20, B = 5, C = 110: TOTALWEIGHT 135, DIFFERENCE = 90
-test "PINA: 0x14, PINB: 0x05, PINC 0x6E => PORTD: 0x87"
+test "PINA: 0x14, PINB: 0x05, PINC 0x6E => PORTD: 0x86"
 setPINA 0x14
 setPINB 0x05
 setPINC 0x6E
 continue 5
-expectPORTD 0x87
+expectPORTD 0x86
 checkResult
 
 #A = 20, B = 10, C = 110: TOTALWEIGHT 140, DIFFERENCE = 90
@@ -80,6 +80,22 @@ setPINB 0x0A
 setPINC 0x6E
 continue 5
 expectPORTD 0x8E
+checkResult
+
+test "PINA: 0x01, PINB: 0x01, PINC 0x01 => PORTD: 0x00"
+setPINA 0x01
+setPINB 0x01
+setPINC 0x01
+continue 5
+expectPORTD 0x00
+checkResult
+
+test "PINA: 0x01, PINB: 0x02, PINC 0x04 => PORTD: 0x04"
+setPINA 0x01
+setPINB 0x02
+setPINC 0x04
+continue 5
+expectPORTD 0x04
 checkResult
 
 # Report on how many tests passed/tests ran

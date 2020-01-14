@@ -42,7 +42,7 @@ int main(void) {
 			D = D | 0x02;
 		}
 
-		D = D | (A + B + C);
+		D = ((A + B + C) & 0xFC)  | D;
 		
 		PORTD = D;
 		D = 0x00;	
